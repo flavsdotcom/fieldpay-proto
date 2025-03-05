@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, CardContent } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { FormControl as Input } from "react-bootstrap";
 import DatePicker from "react-datepicker";
@@ -33,7 +33,7 @@ const CoverageRequest = () => {
   return (
     <div className="p-6 max-w-md mx-auto">
       <Card className="bg-[#edebdf] p-4">
-        <CardContent>
+        <Card.Bodyt>
           <h2 className="text-xl font-bold text-black mb-4">Create Coverage Request</h2>
           <Input
             name="workDescription"
@@ -66,7 +66,7 @@ const CoverageRequest = () => {
               <Button className="mt-2 bg-black text-white">Copy & Send</Button>
             </div>
           )}
-        </CardContent>
+        </Card.Body>
       </Card>
     </div>
   );
