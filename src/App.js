@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import { FormControl as Input } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./App.css";
 
 const CoverageRequest = () => {
   const [details, setDetails] = useState({
@@ -31,7 +32,7 @@ const CoverageRequest = () => {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto">
+    <div className="app-container">
       <Card className="bg-[#edebdf] p-4">
         <Card.Body>
           <h2 className="text-xl font-bold text-black mb-4">Create Coverage Request</h2>
