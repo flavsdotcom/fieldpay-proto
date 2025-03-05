@@ -1,12 +1,47 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, CardContent } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { FormControl as Input } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./App.css";
 
-const CoverageRequest = () => {
+const AdminHome = ({ setActivePage }) => {
+  return (
+    <div className="app-container">
+      <h2>Admin Dashboard</h2>
+      <Button onClick={() => setActivePage("recruiting")}>Recruiting</Button>
+      <Button onClick={() => setActivePage("teamwork")}>Teamwork</Button>
+      <Button onClick={() => setActivePage("trade-school")}>Trade School</Button>
+      <Button onClick={() => setActivePage("other")}>Other</Button>
+    </div>
+  );
+};
+
+const Recruiting = ({ setActivePage }) => {
+  return (
+    <div className="app-container">
+      <h2>Recruiting</h2>
+      <Button onClick={() => setActivePage("referral-bonus")}>Create Referral Bonus</Button>
+      <p>High performers want to work with other high performers. Relationships at work drive retention.</p>
+      <Button onClick={() => setActivePage("ride-along-bonus")}>Create Ride Along Bonus</Button>
+      <p>De-risk hiring by inviting a candidate to “ride along” with a team member. Evaluate their ability to learn and their composure in customer environment.</p>
+      <Button onClick={() => setActivePage("home")}>Back</Button>
+    </div>
+  );
+};
+
+const Teamwork = ({ setActivePage }) => {
+  return (
+    <div className="app-container">
+      <h2>Teamwork</h2>
+      <Button onClick={() => setActivePage("coverage-request")}>Create Coverage Request</Button>
+      <p>Has someone called out or quit? Or do you need someone's special expertise? Cover down with confidence knowing you can pay someone same-day.</p>
+      <Button onClick={() => setActivePage("home")}>Back</Button>
+    </div>
+  );
+};
+
+const CreateCoverageRequest = () => {
   const [details, setDetails] = useState({
     workDescription: "",
     dateTime: new Date(),
@@ -27,27 +62,23 @@ const CoverageRequest = () => {
   };
 
   const generateInvite = () => {
-    const text = `Hey! Are you available for ${details.workDescription}? I need help on ${details.dateTime.toDateString()} and I can pay $${details.payment}.\n\nSame Day Payout available if you onboard here with Fieldpay: [onboarding link]`;
+    const text = `Hey! Are you available for ${details.workDescription}? I need help on ${details.dateTime.toDateString()} and I can pay $${details.payment}.
+\nSame Day Payout available if you onboard here with Fieldpay: [onboarding link]`;
     setInviteText(text);
   };
 
   return (
     <div className="app-container">
-      <Card className="bg-[#edebdf] p-4">
+      <Card className="card">
         <Card.Body>
-          <h2 className="text-xl font-bold text-black mb-4">Create Coverage Request</h2>
+          <h2>Create Coverage Request</h2>
           <Input
             name="workDescription"
             placeholder="Describe the work"
             value={details.workDescription}
             onChange={handleChange}
-            className="mb-2 bg-white"
           />
-          <DatePicker
-            selected={details.dateTime}
-            onChange={handleDateChange}
-            className="mb-2 w-full p-2 border rounded"
-          />
+          <DatePicker selected={details.dateTime} onChange={handleDateChange} />
           <input
             type="range"
             min={5}
@@ -55,23 +86,28 @@ const CoverageRequest = () => {
             step={5}
             value={details.payment}
             onChange={handlePaymentChange}
-            className="mb-2 w-full"
           />
-          <span className="block text-black mb-2">Payment: ${details.payment}</span>
-          <Button className="bg-[#72a2a6] text-white w-full" onClick={generateInvite}>
-            Generate Invite
-          </Button>
-          {inviteText && (
-            <div className="mt-4 p-2 bg-[#a5afc7] text-white rounded">
-              <p>{inviteText}</p>
-              <Button className="mt-2 bg-black text-white">Copy & Send</Button>
-            </div>
-          )}
+          <span>Payment: ${details.payment}</span>
+          <Button onClick={generateInvite}>Generate Invite</Button>
+          {inviteText && <div className="invite-text">{inviteText}</div>}
         </Card.Body>
       </Card>
     </div>
   );
 };
 
-export default CoverageRequest;
+const App = () => {
+  const [activePage, setActivePage] = useState("home");
+
+  return (
+    <div>
+      {activePage === "home" && <AdminHome setActivePage={setActivePage} />}
+      {activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
+      {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
+      {activePage === "coverage-request" && <CreateCoverageRequest />}
+    </div>
+  );
+};
+
+export default App;
 
