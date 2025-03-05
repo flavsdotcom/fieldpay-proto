@@ -33,7 +33,7 @@ const CoverageRequest = () => {
   return (
     <div className="p-6 max-w-md mx-auto">
       <Card className="bg-[#edebdf] p-4">
-        <Card.Bodyt>
+        <Card.Body>
           <h2 className="text-xl font-bold text-black mb-4">Create Coverage Request</h2>
           <Input
             name="workDescription"
