@@ -10,10 +10,10 @@ const AdminHome = ({ setActivePage }) => {
   return (
     <div className="app-container">
       <h2 className="top-third">Admin Dashboard</h2>
-      <Button onClick={() => setActivePage("recruiting")}>Recruiting</Button>
-      <Button onClick={() => setActivePage("teamwork")}>Teamwork</Button>
-      <Button onClick={() => setActivePage("trade-school")}>Trade School</Button>
-      <Button onClick={() => setActivePage("other")}>Other</Button>
+      <Button className="custom-button" onClick={() => setActivePage("recruiting")}>Recruiting</Button>
+      <Button className="custom-button" onClick={() => setActivePage("teamwork")}>Teamwork</Button>
+      <Button className="custom-button" onClick={() => setActivePage("trade-school")}>Trade School</Button>
+      <Button className="custom-button" onClick={() => setActivePage("other")}>Other</Button>
     </div>
   );
 };
