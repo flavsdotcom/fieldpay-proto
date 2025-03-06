@@ -44,6 +44,36 @@ const Teamwork = ({ setActivePage }) => {
   );
 };
 
+const CreateReferralBonus = ({ setActivePage }) => {
+  return (
+    <div className="app-container">
+      <h2 className="top-third">Create Referral Bonus</h2>
+      <p className="info-text italic">We're running a referral bonus campaign! We'll pay you 50% on the first day your referral starts, and 50% 30 days later if they're still here.</p>
+      <Button className="full-width-button" onClick={() => setActivePage("home")}>Home</Button>
+    </div>
+  );
+};
+
+const CreateRideAlongBonus = ({ setActivePage }) => {
+  return (
+    <div className="app-container">
+      <h2 className="top-third">Create Ride Along Bonus</h2>
+      <p className="info-text italic">You've been invited for a ride along to learn about the day in the life of a service tech. Shadow our crew, have some fun, and get paid at the end of the day!</p>
+      <Button className="full-width-button" onClick={() => setActivePage("home")}>Home</Button>
+    </div>
+  );
+};
+
+const CreateCoverageRequest = ({ setActivePage }) => {
+  return (
+    <div className="app-container">
+      <h2 className="top-third">Create Coverage Request</h2>
+      <p className="info-text italic">Need coverage? Send out a request and pay same-day!</p>
+      <Button className="full-width-button" onClick={() => setActivePage("home")}>Home</Button>
+    </div>
+  );
+};
+
 const App = () => {
   const [activePage, setActivePage] = useState("home");
 
@@ -52,6 +82,9 @@ const App = () => {
       {activePage === "home" && <AdminHome setActivePage={setActivePage} />}
       {activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
       {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
+      {activePage === "referral-bonus" && <CreateReferralBonus setActivePage={setActivePage} />}
+      {activePage === "ride-along-bonus" && <CreateRideAlongBonus setActivePage={setActivePage} />}
+      {activePage === "coverage-request" && <CreateCoverageRequest setActivePage={setActivePage} />}
     </div>
   );
 };
