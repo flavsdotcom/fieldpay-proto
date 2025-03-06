@@ -75,12 +75,36 @@ const CreateCoverageRequest = ({ setActivePage }) => {
 };
 
 const CreateReferralBonus = ({ setActivePage }) => {
-  return <div className="app-container"><h2>Create Referral Bonus Form Goes Here</h2></div>;
+  const [details, setDetails] = useState({ dateTime: new Date(), payment: 500 });
+  const [inviteText, setInviteText] = useState("");
+
+  const handleDateChange = (date) => setDetails({ ...details, dateTime: date });
+  const handlePaymentChange = (e) => setDetails({ ...details, payment: Number(e.target.value) });
+
+  const generateInvite = () => {
+    const text = `Hey! We're running a referral bonus campaign. We'll pay you 50% on the first day your referral starts, and 50% 30 days later if they're still here! $${details.payment}.
+\nThis campaign runs through ${details.dateTime.toDateString()}. Onboard with us here to accept this challenge [onboarding link]`;
+    setInviteText(text);
+  };
+
+  return (
+    <div className="app-container">
+      <Card className="card">
+        <Card.Body>
+          <h2>Create Referral Bonus</h2>
+          <DatePicker selected={details.dateTime} onChange={handleDateChange} className="full-width-datepicker" />
+          <input type="range" min={5} max={1000} step={5} value={details.payment} onChange={handlePaymentChange} className="full-width-slider" />
+          <span>Payment: ${details.payment}</span>
+          <Button className="full-width-button" onClick={generateInvite}>Generate Invite</Button>
+          {inviteText && <div className="invite-text">{inviteText}</div>}
+          <Button className="full-width-button" onClick={() => setActivePage("home")}>Home</Button>
+        </Card.Body>
+      </Card>
+    </div>
+  );
 };
 
-const CreateRideAlongBonus = ({ setActivePage }) => {
-  return <div className="app-container"><h2>Create Ride Along Bonus Form Goes Here</h2></div>;
-};
+const CreateRideAlongBonus = CreateReferralBonus;
 
 const App = () => {
   const [activePage, setActivePage] = useState("home");
@@ -98,4 +122,3 @@ const App = () => {
 };
 
 export default App;
-
