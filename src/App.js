@@ -130,6 +130,60 @@ const CreateRideAlongBonus = ({ setActivePage }) => {
     </div>
   );
 };
+const CreateCoverageRequest = ({ setActivePage }) => {
+  const [details, setDetails] = useState({
+    workDescription: "",
+    dateTime: new Date(),
+    payment: 500,
+  });
+  const [inviteText, setInviteText] = useState("");
+
+  const handleChange = (e) => {
+    setDetails({ ...details, [e.target.name]: e.target.value });
+  };
+
+  const handleDateChange = (date) => {
+    setDetails({ ...details, dateTime: date });
+  };
+
+  const handlePaymentChange = (e) => {
+    setDetails({ ...details, payment: Number(e.target.value) });
+  };
+
+  const generateInvite = () => {
+    const text = `Hey! Are you available for ${details.workDescription}? I need help on ${details.dateTime.toDateString()} and I can pay $${details.payment}.\n\nSame Day Payout available if you onboard here with Fieldpay: [onboarding link]`;
+    setInviteText(text);
+  };
+
+  return (
+    <div className="app-container">
+      <Card className="card">
+        <Card.Body>
+          <h2>Create Coverage Request</h2>
+          <Input
+            name="workDescription"
+            placeholder="Describe the work"
+            value={details.workDescription}
+            onChange={handleChange}
+          />
+          <DatePicker selected={details.dateTime} onChange={handleDateChange} />
+          <input
+            type="range"
+            min={5}
+            max={1000}
+            step={5}
+            value={details.payment}
+            onChange={handlePaymentChange}
+          />
+          <span>Payment: ${details.payment}</span>
+          <Button onClick={generateInvite}>Generate Invite</Button>
+          {inviteText && <div className="invite-text">{inviteText}</div>}
+          <Button onClick={() => setActivePage("home")}>Home</Button>
+        </Card.Body>
+      </Card>
+    </div>
+  );
+};
 
 const App = () => {
   const [activePage, setActivePage] = useState("home");
