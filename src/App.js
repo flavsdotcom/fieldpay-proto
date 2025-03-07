@@ -23,25 +23,6 @@ const AdminHome = ({ setActivePage }) => {
   );
 };
 
-    <div className="app-container">
-      <h2 className="top-third">Create Referral Bonus</h2>
-      <label>Campaign End Date:</label>
-      <DatePicker selected={details.dateTime} onChange={handleDateChange} />
-      <label>Payment:</label>
-      <input type="range" min={5} max={1000} step={5} value={details.payment} onChange={handlePaymentChange} />
-      <span>Payment: ${details.payment}</span>
-      <Button className="custom-button" onClick={generateInvite}>Generate Invite</Button>
-      {inviteText && (
-        <div>
-          <div>{inviteText}</div>
-          <Button className="custom-button" onClick={copyToClipboard}>Copy Invite</Button>
-        </div>
-      )}
-      <Button className="custom-button" onClick={() => setActivePage("home")}>Home</Button>
-    </div>
-  );
-};
-
 const App = () => {
   const [activePage, setActivePage] = useState("home");
   const [requests, setRequests] = useState([]);
