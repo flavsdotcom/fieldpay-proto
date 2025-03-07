@@ -19,6 +19,7 @@ const AdminHome = ({ setActivePage }) => {
       <Button className="custom-button" onClick={() => setActivePage("teamwork")}>Teamwork</Button>
       <Button className="custom-button" onClick={() => setActivePage("trade-school")}>Trade School</Button>
       <Button className="custom-button" onClick={() => setActivePage("other")}>Other</Button>
+<footer className="footer">Fieldpay</footer>
     </div>
   );
 };
@@ -49,6 +50,8 @@ const Recruiting = ({ setActivePage }) => {
       <p className="info-text">De-risk hiring by inviting a candidate to “ride along” with a team member. Evaluate their ability to learn and their composure in customer environments.</p>
       <Button className="custom-button" onClick={() => setActivePage("ride-along-bonus")}>Create Ride Along Bonus</Button>
       <Button className="custom-button" onClick={() => setActivePage("home")}>Home</Button>
+<footer className="footer">Fieldpay</footer>
+
     </div>
   );
 };
