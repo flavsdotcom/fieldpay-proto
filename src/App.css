@@ -1,66 +1,112 @@
+/* Global styles */
 body {
-  font-family: Arial, sans-serif;
   background-color: #edebdf;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
+/* Centering and spacing */
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
-padding-left: 70px;
-padding-right: 70px;
-}
-
-.card {
-  width: 100%;
-  max-width: 400px;
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  font-size: 20px;
+  height: 100vh;
   text-align: center;
+  padding: 20px;
 }
 
-input, button {
-  width: 100%;
-  margin-bottom: 10px;
+/* Titles positioned in the top third */
+.top-third {
+  margin-top: 10vh;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000;
 }
 
-button {
-  padding: 10px;
-  background-color: #000000;
-  border: none;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #5d8d92;
-}
-
+/* Buttons */
 .custom-button {
-  background-color: #000000; /* Change this hex code to your preferred color */
-  color: white;
-  border: none;
+  display: block;
+  width: 80%;
+  max-width: 300px;
   padding: 12px 20px;
-  font-size: 16px;
-  width: 100%;
-  margin: 10px 0;
+  margin: 10px auto;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
   border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .custom-button:hover {
-  background-color: #5b8a8e; /* Slightly darker shade for hover effect */
+  background-color: #5d8d92;
+}
+
+/* Forms & Inputs */
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+}
+
+input,
+.react-datepicker-wrapper {
+  width: 80%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Range Slider */
+input[type="range"] {
+  width: 80%;
+  margin: 10px 0;
+}
+
+/* Payment amount display */
+span {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Generated invite text */
+.invite-text {
+  background-color: #fdd774;
+  color: #000;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  word-wrap: break-word;
+  width: 80%;
+  max-width: 400px;
+}
+
+/* Copy Invite Button */
+.copy-button {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.copy-button:hover {
+  background-color: #5d8d92;
+}
+
+/* Home button */
+.home-button {
+  margin-top: 20px;
 }
 
