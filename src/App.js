@@ -9,6 +9,7 @@ import Teamwork from "./Teamwork";
 import CreateCoverageRequest from "./CreateCoverageRequest";
 import ActiveRequests from "./ActiveRequests";
 import CreateRideAlongBonus from "./CreateRideAlongBonus";
+import CreateReferralBonus from "./CreateReferralBonus";
 
 const AdminHome = ({ setActivePage }) => {
   return (
