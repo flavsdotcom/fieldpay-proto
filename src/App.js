@@ -39,57 +39,39 @@ const Teamwork = ({ setActivePage }) => {
   );
 };
 
-const CreateReferralBonus = ({ setActivePage }) => {
-  const [details, setDetails] = useState({ dateTime: new Date(), payment: 500 });
+const CreateCoverageRequest = ({ setActivePage }) => {
+  const [details, setDetails] = useState({ workDescription: "", dateTime: new Date(), payment: 500 });
   const [inviteText, setInviteText] = useState("");
 
+  const handleChange = (e) => setDetails({ ...details, [e.target.name]: e.target.value });
   const handleDateChange = (date) => setDetails({ ...details, dateTime: date });
   const handlePaymentChange = (e) => setDetails({ ...details, payment: Number(e.target.value) });
+  const copyToClipboard = () => navigator.clipboard.writeText(inviteText);
 
   const generateInvite = () => {
-    const text = `Hey! We're running a referral bonus campaign. We'll pay you 50% on the first day your referral starts, and 50% 30 days later if they're still here! $${details.payment}.
+    const text = `Hey! Are you available for ${details.workDescription}? I need help on ${details.dateTime.toDateString()} and I can pay $${details.payment}.
 
-This campaign runs through ${details.dateTime.toDateString()}. Onboard with us here to accept this challenge [onboarding link]`;
+Same day payout available if you onboard here with FieldPay: [onboarding link]`;
     setInviteText(text);
   };
 
   return (
     <div className="app-container">
-      <h2 className="top-third">Create Referral Bonus</h2>
-      <label>Campaign End Date:</label>
+      <h2 className="top-third">Create Coverage Request</h2>
+      <label>Describe the Work:</label>
+      <Input name="workDescription" placeholder="Describe the work" value={details.workDescription} onChange={handleChange} />
+      <label>Date of Coverage:</label>
       <DatePicker selected={details.dateTime} onChange={handleDateChange} />
+      <label>Payment:</label>
       <input type="range" min={5} max={1000} step={5} value={details.payment} onChange={handlePaymentChange} />
       <span>Payment: ${details.payment}</span>
       <Button className="custom-button" onClick={generateInvite}>Generate Invite</Button>
-      {inviteText && <div>{inviteText}</div>}
-      <Button className="custom-button" onClick={() => setActivePage("home")}>Home</Button>
-    </div>
-  );
-};
-
-const CreateRideAlongBonus = ({ setActivePage }) => {
-  const [details, setDetails] = useState({ dateTime: new Date(), payment: 500 });
-  const [inviteText, setInviteText] = useState("");
-
-  const handleDateChange = (date) => setDetails({ ...details, dateTime: date });
-  const handlePaymentChange = (e) => setDetails({ ...details, payment: Number(e.target.value) });
-
-  const generateInvite = () => {
-    const text = `Hello! You've been invited for a ride along to learn about the day in the life of a service tech. Shadow our crew, have some fun, and get paid $${details.payment} at the end of the day, guaranteed.
-
-Join us before ${details.dateTime.toDateString()} by signing up here [onboarding link] to claim your ride along spot!`;
-    setInviteText(text);
-  };
-
-  return (
-    <div className="app-container">
-      <h2 className="top-third">Create Ride Along Bonus</h2>
-      <label>Campaign End Date:</label>
-      <DatePicker selected={details.dateTime} onChange={handleDateChange} />
-      <input type="range" min={5} max={1000} step={5} value={details.payment} onChange={handlePaymentChange} />
-      <span>Payment: ${details.payment}</span>
-      <Button className="custom-button" onClick={generateInvite}>Generate Invite</Button>
-      {inviteText && <div>{inviteText}</div>}
+      {inviteText && (
+        <div>
+          <div>{inviteText}</div>
+          <Button className="custom-button" onClick={copyToClipboard}>Copy Invite</Button>
+        </div>
+      )}
       <Button className="custom-button" onClick={() => setActivePage("home")}>Home</Button>
     </div>
   );
