@@ -5,6 +5,10 @@ import { FormControl as Input } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./App.css";
+import Teamwork from "./Teamwork";
+import CreateCoverageRequest from "./CreateCoverageRequest";
+import ActiveRequests from "./ActiveRequests";
+import CreateRideAlongBonus from "./CreateRideAlongBonus";
 
 const AdminHome = ({ setActivePage }) => {
   return (
