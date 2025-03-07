@@ -12,7 +12,7 @@ import CreateRideAlongBonus from "./CreateRideAlongBonus";
 import CreateReferralBonus from "./CreateReferralBonus";
 
 const AdminHome = ({ setActivePage }) => {
-  return (
+ return (
     <div className="app-container">
       <h2 className="top-third">Admin Dashboard</h2>
       <Button className="custom-button" onClick={() => setActivePage("recruiting")}>Recruiting</Button>
@@ -23,7 +23,6 @@ const AdminHome = ({ setActivePage }) => {
   );
 };
 
-  return (
     <div className="app-container">
       <h2 className="top-third">Create Referral Bonus</h2>
       <label>Campaign End Date:</label>
