@@ -23,20 +23,6 @@ const AdminHome = ({ setActivePage }) => {
   );
 };
 
-const CreateReferralBonus = ({ setActivePage }) => {
-  const [details, setDetails] = useState({ dateTime: new Date(), payment: 500 });
-  const [inviteText, setInviteText] = useState("");
-
-  const handleDateChange = (date) => setDetails({ ...details, dateTime: date });
-  const handlePaymentChange = (e) => setDetails({ ...details, payment: Number(e.target.value) });
-  const copyToClipboard = () => navigator.clipboard.writeText(inviteText);
-
-  const generateInvite = () => {
-    const text = `Hey! We're running a referral bonus campaign. We'll pay you 50% on the first day your referral starts, and 50% 30 days later if they're still here! $${details.payment}.
-    \nThis campaign runs through ${details.dateTime.toDateString()}. Onboard with us here to accept this challenge [onboarding link]`;
-    setInviteText(text);
-  };
-
   return (
     <div className="app-container">
       <h2 className="top-third">Create Referral Bonus</h2>
