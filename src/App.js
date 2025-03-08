@@ -13,6 +13,7 @@ import CreateReferralBonus from "./CreateReferralBonus";
 import TalentDashboard from "./TalentDashboard";
 import CreateGig from "./CreateGig";
 import Recruiting from "./Recruiting";
+import AvailableOpportunities from "./AvailableOpportunities";
 
 
 
