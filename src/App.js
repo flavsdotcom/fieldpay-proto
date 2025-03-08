@@ -29,25 +29,25 @@ const App = () => {
         {userRole === "admin" ? "👤 Talent" : "🏢 Admin"}
       </button>
 
-{/* Admin Mode */}
-{userRole === "admin" ? (
-  <>
-    {activePage === "home" && <AdminHome setActivePage={setActivePage} />}
-    {activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
-    {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
-    {activePage === "coverage-request" && <CreateCoverageRequest setActivePage={setActivePage} />}
-    {activePage === "active-requests" && <ActiveRequests setActivePage={setActivePage} />}
-    {activePage === "ride-along-bonus" && <CreateRideAlongBonus setActivePage={setActivePage} />}
-    {activePage === "referral-bonus" && <CreateReferralBonus setActivePage={setActivePage} />}
-  </>
-) : (
-  <>
-    {/* Talent Mode - No extra check needed */}
-    {activePage === "talent-dashboard" && <TalentDashboard setActivePage={setActivePage} />}
-    {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
-    {activePage === "create-gig" && <CreateGig setActivePage={setActivePage} />}
-  </>
-)}
+      {/* Admin Mode */}
+      {userRole === "admin" ? (
+        <>
+          {activePage === "home" && <AdminHome setActivePage={setActivePage} />}
+          {activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
+          {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
+          {activePage === "coverage-request" && <CreateCoverageRequest setActivePage={setActivePage} />}
+          {activePage === "active-requests" && <ActiveRequests setActivePage={setActivePage} />}
+          {activePage === "ride-along-bonus" && <CreateRideAlongBonus setActivePage={setActivePage} />}
+          {activePage === "referral-bonus" && <CreateReferralBonus setActivePage={setActivePage} />}
+        </>
+      ) : (
+        <>
+          {/* Talent Mode */}
+          {activePage === "talent-dashboard" && <TalentDashboard setActivePage={setActivePage} />}
+          {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
+          {activePage === "create-gig" && <CreateGig setActivePage={setActivePage} />}
+        </>
+      )}
 
       {/* Footer */}
       <footer className="footer">Fieldpay</footer>

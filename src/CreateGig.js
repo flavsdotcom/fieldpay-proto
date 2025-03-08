@@ -1,61 +1,33 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { FormControl as Input } from "react-bootstrap";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 const CreateGig = ({ setActivePage }) => {
   const [gigDetails, setGigDetails] = useState({
     description: "",
-    date: new Date(),
-    payment: 0,
+    rate: "",
+    date: "",
   });
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     setGigDetails({ ...gigDetails, [e.target.name]: e.target.value });
   };
 
-  const handleDateChange = (date) => {
-    setGigDetails({ ...gigDetails, date });
-  };
-
-  const submitGig = () => {
-    alert("Your gig request has been created!");
-    setActivePage("talent-dashboard");
+  const handleSubmit = () => {
+    alert(`Gig request sent: ${gigDetails.description} for ${gigDetails.rate} on ${gigDetails.date}`);
   };
 
   return (
     <div className="app-container">
-      <h2 className="top-third">Create a Gig</h2>
-      <Card className="gig-card">
-        <Card.Body>
-          <label>Job Description:</label>
-          <Input
-            type="text"
-            name="description"
-            value={gigDetails.description}
-            onChange={handleInputChange}
-            placeholder="Describe the job"
-          />
-          <label>Date:</label>
-          <DatePicker selected={gigDetails.date} onChange={handleDateChange} />
-          <label>Payment:</label>
-          <Input
-            type="number"
-            name="payment"
-            value={gigDetails.payment}
-            onChange={handleInputChange}
-            placeholder="Enter amount"
-          />
-          <Button className="custom-button" onClick={submitGig}>
-            Submit Gig
-          </Button>
-        </Card.Body>
-      </Card>
-      <Button className="custom-button" onClick={() => setActivePage("talent-dashboard")}>
-        Back
-      </Button>
+      <h2 className="top-third">Request a Gig</h2>
+      <label>Description:</label>
+      <input type="text" name="description" value={gigDetails.description} onChange={handleChange} className="full-width-input" />
+      <label>Rate:</label>
+      <input type="text" name="rate" value={gigDetails.rate} onChange={handleChange} className="full-width-input" />
+      <label>Date:</label>
+      <input type="date" name="date" value={gigDetails.date} onChange={handleChange} className="full-width-input" />
+      <Button className="custom-button" onClick={handleSubmit}>Send Request</Button>
+      <Button className="custom-button" onClick={() => setActivePage("talent-dashboard")}>Back</Button>
+      <footer className="footer">Fieldpay</footer>
     </div>
   );
 };
