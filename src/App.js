@@ -16,10 +16,17 @@ const App = () => {
   const [activePage, setActivePage] = useState("home");
   const [userRole, setUserRole] = useState("admin"); // Default to Admin
 
-  const toggleRole = () => {
-    setUserRole((prevRole) => (prevRole === "admin" ? "talent" : "admin"));
-    console.log("Switched Role to:", userRole === "admin" ? "Talent" : "Admin");
-  };
+const toggleRole = () => {
+  setUserRole((prevRole) => {
+    const newRole = prevRole === "admin" ? "talent" : "admin";
+    console.log("Switched Role to:", newRole);
+
+    // 🛠️ FIX: Automatically set the correct activePage when switching roles
+    setActivePage(newRole === "admin" ? "home" : "talent-dashboard");
+
+    return newRole;
+  });
+};
 
 console.log("Rendering App with userRole:", userRole, "and activePage:", activePage);
 
@@ -46,13 +53,12 @@ return (
     )}
 
     {/* 🚀 Talent Mode 🚀 */}
-    {userRole === "talent" && (
-      <>
-        <TalentDashboard setActivePage={setActivePage} />
-        {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
-        {activePage === "create-gig" && <CreateGig setActivePage={setActivePage} />}
-      </>
-    )}
+{userRole === "talent" && (
+  <>
+    {activePage === "talent-dashboard" && ( <TalentDashboard setActivePage={setActivePage} />)}
+    {activePage === "available-opportunities" && ( <AvailableOpportunities setActivePage={setActivePage} />)}
+  </>
+)}
 
     {/* Footer */}
     <footer className="footer">Fieldpay</footer>
