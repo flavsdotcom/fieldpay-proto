@@ -33,18 +33,6 @@ const AdminHome = ({ setActivePage }) => {
   );
 };
 
-const TalentDashboard = ({ setActivePage }) => {
-  return (
-    <div className="app-container">
-      <h2 className="top-third">Talent Dashboard</h2>
-      <Button className="custom-button" onClick={() => setActivePage("create-gig")}>Create Gig</Button>
-      <Button className="custom-button" onClick={() => setActivePage("available-opportunities")}>View Available Opportunities</Button>
-      <Button className="custom-button" onClick={() => setActivePage("home")}>Home</Button>
-      <footer className="footer">Fieldpay</footer>
-    </div>
-  );
-};
-
 const AvailableOpportunities = ({ setActivePage }) => {
   const [opportunities, setOpportunities] = useState([
     { id: 1, description: "Filter clean job", payment: 400, company: "Company ABC" },
