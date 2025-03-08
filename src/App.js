@@ -37,40 +37,6 @@ const AdminHome = ({ setActivePage }) => {
   );
 };
 
-const AvailableOpportunities = ({ setActivePage }) => {
-  const [opportunities, setOpportunities] = useState([
-    { id: 1, description: "Filter clean job", payment: 400, company: "Company ABC" },
-    { id: 2, description: "General maintenance", payment: 350, company: "Company XYZ" }
-  ]);
-
-  const claimGig = (id) => {
-    alert("You've claimed this gig. The company has been notified.");
-    setOpportunities(opportunities.filter(opportunity => opportunity.id !== id));
-  };
-
-  return (
-    <div className="app-container">
-      <h2 className="top-third">Available Opportunities</h2>
-      {opportunities.length > 0 ? (
-        opportunities.map((opportunity) => (
-          <Card key={opportunity.id} className="gig-card">
-            <Card.Body>
-              <h5>{opportunity.description}</h5>
-              <p>Company: {opportunity.company}</p>
-              <p>Payment: ${opportunity.payment}</p>
-              <Button className="custom-button" onClick={() => claimGig(opportunity.id)}>Claim</Button>
-            </Card.Body>
-          </Card>
-        ))
-      ) : (
-        <p>No available opportunities at the moment.</p>
-      )}
-      <Button className="custom-button" onClick={() => setActivePage("talent-dashboard")}>Back</Button>
-      <footer className="footer">Fieldpay</footer>
-    </div>
-  );
-};
-
 const App = () => {
   const [activePage, setActivePage] = useState("home");
   const [requests, setRequests] = useState([]);
