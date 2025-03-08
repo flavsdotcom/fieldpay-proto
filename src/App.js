@@ -11,6 +11,8 @@ import ActiveRequests from "./ActiveRequests";
 import CreateRideAlongBonus from "./CreateRideAlongBonus";
 import CreateReferralBonus from "./CreateReferralBonus";
 import TalentDashboard from "./TalentDashboard";
+import CreateGig from "./CreateGig";
+
 
 const AdminHome = ({ setActivePage }) => {
  return (
