@@ -37,20 +37,34 @@ return (
       {userRole === "admin" ? "👤 Talent" : "🏢 Admin"}
     </button>
 
-    {/* 🚀 Admin Mode 🚀 */}
-    {userRole === "admin" && (
-      <>
-        <AdminHome setActivePage={setActivePage} />
-        {activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
-        {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
-        {activePage === "coverage-request" && (
-          <CreateCoverageRequest setActivePage={setActivePage} />
-        )}
-        {activePage === "active-requests" && <ActiveRequests setActivePage={setActivePage} />}
-        {activePage === "ride-along-bonus" && <CreateRideAlongBonus setActivePage={setActivePage} />}
-        {activePage === "referral-bonus" && <CreateReferralBonus setActivePage={setActivePage} />}
-      </>
-    )}
+{/* Admin Mode */}
+{userRole === "admin" && activePage === "home" && (
+  <AdminHome setActivePage={setActivePage} />
+)}
+
+{userRole === "admin" && activePage === "recruiting" && (
+  <Recruiting setActivePage={setActivePage} />
+)}
+
+{userRole === "admin" && activePage === "teamwork" && (
+  <Teamwork setActivePage={setActivePage} />
+)}
+
+{userRole === "admin" && activePage === "coverage-request" && (
+  <CreateCoverageRequest setActivePage={setActivePage} />
+)}
+
+{userRole === "admin" && activePage === "active-requests" && (
+  <ActiveRequests setActivePage={setActivePage} />
+)}
+
+{userRole === "admin" && activePage === "ride-along-bonus" && (
+  <CreateRideAlongBonus setActivePage={setActivePage} />
+)}
+
+{userRole === "admin" && activePage === "referral-bonus" && (
+  <CreateReferralBonus setActivePage={setActivePage} />
+)}
 
     {/* 🚀 Talent Mode 🚀 */}
 {userRole === "talent" && (
