@@ -1,60 +1,55 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import { FormControl as Input } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./App.css";
+import AdminHome from "./AdminHome";
+import Recruiting from "./Recruiting";
 import Teamwork from "./Teamwork";
 import CreateCoverageRequest from "./CreateCoverageRequest";
-import ActiveRequests from "./ActiveRequests";
 import CreateRideAlongBonus from "./CreateRideAlongBonus";
 import CreateReferralBonus from "./CreateReferralBonus";
 import TalentDashboard from "./TalentDashboard";
-import CreateGig from "./CreateGig";
-import Recruiting from "./Recruiting";
 import AvailableOpportunities from "./AvailableOpportunities";
-
-
-
-const AdminHome = ({ setActivePage }) => {
- return (
-    <div className="app-container">
-      <h2 className="top-third">Admin Dashboard</h2>
-      <Button className="custom-button" onClick={() => setActivePage("recruiting")}>
-        Recruiting
-      </Button>
-      <Button className="custom-button" onClick={() => setActivePage("teamwork")}>
-        Teamwork
-      </Button>
-      <Button className="custom-button" onClick={() => setActivePage("trade-school")}>
-        Trade School
-      </Button>
-      <Button className="custom-button" onClick={() => setActivePage("other")}>
-        Other
-      </Button>
-    </div>
-  );
-};
+import CreateGig from "./CreateGig";
+import ActiveRequests from "./ActiveRequests";
 
 const App = () => {
   const [activePage, setActivePage] = useState("home");
-  const [requests, setRequests] = useState([]);
+  const [userRole, setUserRole] = useState("admin");
+
+  const toggleRole = () => {
+    setUserRole(userRole === "admin" ? "talent" : "admin");
+  };
 
   return (
-    <div>
-      {activePage === "home" && <AdminHome setActivePage={setActivePage} />}
-      {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
-      {activePage === "coverage-request" && (
-        <CreateCoverageRequest setActivePage={setActivePage} requests={requests} setRequests={setRequests} />
+    <div className="app-container">
+      {/* Toggle Button */}
+      <button className="toggle-button" onClick={toggleRole}>
+        {userRole === "admin" ? "👤 Talent" : "🏢 Admin"}
+      </button>
+
+      {/* Admin Mode */}
+      {userRole === "admin" ? (
+        <>
+          {activePage === "home" && <AdminHome setActivePage={setActivePage} />}
+          {activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
+          {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
+          {activePage === "coverage-request" && <CreateCoverageRequest setActivePage={setActivePage} />}
+          {activePage === "active-requests" && <ActiveRequests setActivePage={setActivePage} />}
+          {activePage === "ride-along-bonus" && <CreateRideAlongBonus setActivePage={setActivePage} />}
+          {activePage === "referral-bonus" && <CreateReferralBonus setActivePage={setActivePage} />}
+        </>
+      ) : (
+        <>
+          {/* Talent Mode */}
+          {activePage === "talent-dashboard" && <TalentDashboard setActivePage={setActivePage} />}
+          {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
+          {activePage === "create-gig" && <CreateGig setActivePage={setActivePage} />}
+        </>
       )}
-      {activePage === "active-requests" && <ActiveRequests setActivePage={setActivePage} requests={requests} />}
-      {activePage === "ride-along-bonus" && <CreateRideAlongBonus setActivePage={setActivePage} />}
-      {activePage === "referral-bonus" && <CreateReferralBonus setActivePage={setActivePage} />}
-      {activePage === "talent-dashboard" && <TalentDashboard setActivePage={setActivePage} />}
-      {activePage === "create-gig" && <CreateGig setActivePage={setActivePage} />}
-      {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
-{activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
+
+      {/* Footer */}
       <footer className="footer">Fieldpay</footer>
     </div>
   );
