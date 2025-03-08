@@ -12,6 +12,8 @@ import CreateRideAlongBonus from "./CreateRideAlongBonus";
 import CreateReferralBonus from "./CreateReferralBonus";
 import TalentDashboard from "./TalentDashboard";
 import CreateGig from "./CreateGig";
+import Recruiting from "./Recruiting";
+
 
 
 const AdminHome = ({ setActivePage }) => {
@@ -30,7 +32,6 @@ const AdminHome = ({ setActivePage }) => {
       <Button className="custom-button" onClick={() => setActivePage("other")}>
         Other
       </Button>
-      <footer className="footer">Fieldpay</footer>
     </div>
   );
 };
@@ -86,6 +87,7 @@ const App = () => {
       {activePage === "talent-dashboard" && <TalentDashboard setActivePage={setActivePage} />}
       {activePage === "create-gig" && <CreateGig setActivePage={setActivePage} />}
       {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
+{activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
       <footer className="footer">Fieldpay</footer>
     </div>
   );
