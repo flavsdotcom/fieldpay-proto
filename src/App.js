@@ -42,14 +42,14 @@ const App = () => {
         </>
       ) : (
         <>
-          {/* Talent Mode */}
-{userRole === "talent" && (
-<>
-          {activePage === "talent-dashboard" && <TalentDashboard setActivePage={setActivePage} />}
-          {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
-          {activePage === "create-gig" && <CreateGig setActivePage={setActivePage} />}
-        </>
-      )}
+{/* Talent Mode */}
+{userRole === "talent" ? (
+  <>
+    {activePage === "talent-dashboard" && <TalentDashboard setActivePage={setActivePage} />}
+    {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
+    {activePage === "create-gig" && <CreateGig setActivePage={setActivePage} />}
+  </>
+) : null}
 
       {/* Footer */}
       <footer className="footer">Fieldpay</footer>
