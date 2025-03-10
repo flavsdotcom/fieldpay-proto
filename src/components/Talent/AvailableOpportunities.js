@@ -50,7 +50,6 @@ const AvailableOpportunities = ({ setActivePage }) => {
         </div>
       ))}
 
-      <Button className="opportunity-button back-button" onClick={() => setActivePage("home")}>🏠 Home</Button>
     </div>
   );
 };

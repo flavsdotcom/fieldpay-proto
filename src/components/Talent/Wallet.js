@@ -32,7 +32,6 @@ const Wallet = ({ setActivePage, balance = 0.0, pendingPayouts = 0.0, availableO
         <FaArrowRight size={20} color="#000" /> {/* Arrow Icon to Indicate Navigation */}
       </div>
 
-      <Button className="wallet-button" onClick={() => setActivePage("home")}>🏠 Home</Button>
     </div>
   );
 };
