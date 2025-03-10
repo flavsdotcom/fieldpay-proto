@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import "./Wallet.css"; // Ensure styles are properly linked
+import "./Wallet.css";
 
 const Wallet = ({ setActivePage, balance = 0.0, pendingPayouts = 0.0, availableEarnings = 0.0 }) => {
   const [earnings, setEarnings] = useState([
@@ -16,17 +16,26 @@ const Wallet = ({ setActivePage, balance = 0.0, pendingPayouts = 0.0, availableE
   return (
     <div className="wallet-container">
       <h2 className="wallet-title">Wallet</h2>
-      
-      <div className="wallet-card">
-        <h3>Balance</h3>
-        <p className="balance-amount" style={{ color: "gray" }}>${balance.toFixed(2)}</p>
+
+      {/* Balance & Pending Payouts Side by Side */}
+      <div className="wallet-row">
+        <div className="wallet-card">
+          <h3>Balance</h3>
+          <p>${balance.toFixed(2)}</p>
+        </div>
+        <div className="wallet-card">
+          <h3>Pending Payouts</h3>
+          <p>${pendingPayouts.toFixed(2)}</p>
+        </div>
       </div>
-      
-      <div className="wallet-card pending-payouts">
-        <h3>Pending Payouts</h3>
-        <p style={{ color: "gray" }}>${pendingPayouts.toFixed(2)}</p>
+
+      {/* Potential Earnings Full Width */}
+      <div className="available-earnings">
+        <h3>Potential Earnings</h3>
+        <p>${availableEarnings.toFixed(2)}</p>
       </div>
-      
+
+      {/* Claimable Earnings Section */}
       <h3 className="earnings-title">Available to Claim</h3>
       {earnings.length > 0 ? (
         earnings.map((earning) => (
@@ -38,8 +47,11 @@ const Wallet = ({ setActivePage, balance = 0.0, pendingPayouts = 0.0, availableE
       ) : (
         <p className="no-earnings">No earnings available to claim.</p>
       )}
-      
-      <Button className="wallet-button" onClick={() => setActivePage("talent-dashboard")}>🏠 Home</Button>
+
+      {/* Button for Requesting Same Day Pay */}
+      <Button className="wallet-button" onClick={() => setActivePage("request-same-day-pay")}>
+        Request Same Day Pay
+      </Button>
     </div>
   );
 };
