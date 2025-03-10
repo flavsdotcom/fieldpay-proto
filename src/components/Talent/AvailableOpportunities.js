@@ -1,22 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
+import "./AvailableOpportunities.css"; 
 
 const AvailableOpportunities = ({ setActivePage }) => {
-  const sampleJobs = [
-    { id: 1, title: "New Air Filtration System Installation", company: "ABC Company", rate: "$25/hr" },
-    { id: 2, title: "Residential AC Tune-Up", company: "XYZ Cooling", rate: "$30/hr" }
-  ];
+  const [jobs, setJobs] = useState([
+    { id: 1, title: "New Air Filtration System Installation", company: "HVAC Pro Services", rate: "$250", status: "available", claimedBy: null },
+    { id: 2, title: "Pool Maintenance Service", company: "Blue Water Pools", rate: "$180", status: "claimed", claimedBy: "User" },
+    { id: 3, title: "Electrical Wiring Check", company: "Bright Sparks Electrical", rate: "$200", status: "completed", claimedBy: "Someone Else" },
+    { id: 4, title: "Roof Inspection", company: "Safe Roof Solutions", rate: "$150", status: "paid", claimedBy: "User" }
+  ]);
+
+  const claimJob = (id) => {
+    setJobs(jobs.map(job => job.id === id ? { ...job, status: "claimed", claimedBy: "User" } : job));
+  };
+
+  const completeJob = (id) => {
+    setJobs(jobs.map(job => job.id === id ? { ...job, status: "completed" } : job));
+  };
+
+  const requestPayout = (id) => {
+    setJobs(jobs.map(job => job.id === id ? { ...job, status: "paid" } : job));
+    alert("Payout requested! Waiting for admin approval.");
+  };
 
   return (
-    <div className="app-container">
-      <h2>Available Opportunities</h2>
-      {sampleJobs.map((job) => (
+    <div className="opportunities-container">
+      <h2>Opportunities</h2>
+
+      {jobs.map((job) => (
         <div key={job.id} className="opportunity-card">
           <h3>{job.title}</h3>
           <p><strong>Company:</strong> {job.company}</p>
-          <p><strong>Hourly Rate:</strong> {job.rate}</p>
+          <p><strong>Rate:</strong> {job.rate}</p>
+
+          {job.status === "available" && (
+            <Button className="opportunity-button" onClick={() => claimJob(job.id)}>Claim Job</Button>
+          )}
+          {job.status === "claimed" && job.claimedBy === "User" && (
+            <Button className="opportunity-button" onClick={() => completeJob(job.id)}>Mark as Completed</Button>
+          )}
+          {job.status === "completed" && job.claimedBy === "User" && (
+            <Button className="opportunity-button" onClick={() => requestPayout(job.id)}>Request Payout</Button>
+          )}
+
+          <p className={`job-status ${job.status}`}>
+            Status: {job.status.charAt(0).toUpperCase() + job.status.slice(1)}
+            {job.claimedBy && ` - Claimed by ${job.claimedBy}`}
+          </p>
         </div>
       ))}
-      <button className="custom-button" onClick={() => setActivePage("home")}>Back</button>
+
+      <Button className="opportunity-button back-button" onClick={() => setActivePage("home")}>🏠 Home</Button>
     </div>
   );
 };
