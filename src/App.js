@@ -8,6 +8,9 @@ import CreateReferralBonus from "./components/Admin/CreateReferralBonus";
 import CreateRideAlongBonus from "./components/Admin/CreateRideAlongBonus";
 import Teamwork from "./components/Admin/Teamwork";
 import CreateCoverageRequest from "./components/Admin/CreateCoverageRequest";
+import AdminOther from "./components/Admin/AdminOther";
+import OneTimeLoan from "./components/Admin/OneTimeLoan";
+import EnableEWA from "./components/Admin/EnableEWA";
 
 // Talent Components
 import TalentDashboard from "./components/Talent/TalentDashboard";
@@ -45,6 +48,10 @@ const availableJobs = [
           {activePage === "referral-bonus" && <CreateReferralBonus setActivePage={setActivePage} />}
           {activePage === "ride-along-bonus" && <CreateRideAlongBonus setActivePage={setActivePage} />}
           {activePage === "coverage-request" && <CreateCoverageRequest setActivePage={setActivePage} />}
+{activePage === "other" && <AdminOther setActivePage={setActivePage} />}
+{activePage === "one-time-loan" && <OneTimeLoan setActivePage={setActivePage} />}
+{activePage === "enable-ewa" && <EnableEWA setActivePage={setActivePage} />}
+
         </>
       ) : (
         <>

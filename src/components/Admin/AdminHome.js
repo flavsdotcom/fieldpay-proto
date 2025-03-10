@@ -18,9 +18,15 @@ console.log("Rendering 'Other' section in AdminHome - activePage:", activePage);
       <Button className="custom-button" onClick={() => setActivePage("trade-school")}>
         Trade School
       </Button>
-      <Button className="custom-button" onClick={() => setActivePage("other")}>
-        Other
-      </Button>
+<Button
+  className="custom-button"
+  onClick={() => {
+    console.log("Navigating to 'Other'");
+    setActivePage("other");
+  }}
+>
+  Other
+</Button>
 
       {/* Submenus based on activePage */}
       {activePage === "recruiting" && (
@@ -43,6 +49,27 @@ console.log("Rendering 'Other' section in AdminHome - activePage:", activePage);
           </Button>
         </>
       )}
+{activePage === "other" && (
+  <>
+    <h3>Other</h3>
+    <Button
+      className="custom-button"
+      onClick={() => setActivePage("one-time-loan")}
+    >
+      One-Time Employee Loan
+    </Button>
+    <Button
+      className="custom-button"
+      onClick={() => setActivePage("enable-ewa")}
+    >
+      Enable Earned Wage Access
+    </Button>
+  </>
+)}
+
+
+
+
 
     </div>
   );
