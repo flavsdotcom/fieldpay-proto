@@ -1,13 +1,14 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import "./Wallet.css"; 
+import "./Wallet.css";
 
 const Wallet = ({ setActivePage, balance = 0.0, pendingPayouts = 0.0, availableEarnings = 0.0 }) => {
   return (
     <div className="wallet-container">
       <h2 className="wallet-title">Wallet</h2>
 
-      <div className="wallet-balance-container">
+      {/* Balance & Pending Payouts Side by Side */}
+      <div className="wallet-row">
         <div className="wallet-card">
           <h3>Balance</h3>
           <p className="balance-amount" style={{ color: "gray" }}>${balance.toFixed(2)}</p>
