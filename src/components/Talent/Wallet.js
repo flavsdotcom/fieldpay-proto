@@ -1,8 +1,12 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { FaArrowRight } from "react-icons/fa"; // Import arrow icon
 import "./Wallet.css";
 
-const Wallet = ({ setActivePage, balance = 0.0, pendingPayouts = 0.0, availableEarnings = 0.0 }) => {
+const Wallet = ({ setActivePage, balance = 0.0, pendingPayouts = 0.0, availableOpportunities = [] }) => {
+  // Calculate total potential earnings from available jobs
+  const totalPotentialEarnings = availableOpportunities.reduce((sum, job) => sum + job.rate, 0);
+
   return (
     <div className="wallet-container">
       <h2 className="wallet-title">Wallet</h2>
@@ -19,9 +23,13 @@ const Wallet = ({ setActivePage, balance = 0.0, pendingPayouts = 0.0, availableE
         </div>
       </div>
 
-      <div className="wallet-card available-earnings">
-        <h3>Potential Earnings</h3>
-        <p style={{ color: "gray" }}>${availableEarnings.toFixed(2)}</p>
+      {/* Potential Earnings Section */}
+      <div className="wallet-card available-earnings" onClick={() => setActivePage("available-opportunities")} style={{ cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <h3>Potential Earnings</h3>
+          <p>${totalPotentialEarnings.toFixed(2)}</p>
+        </div>
+        <FaArrowRight size={20} color="#000" /> {/* Arrow Icon to Indicate Navigation */}
       </div>
 
       <Button className="wallet-button" onClick={() => setActivePage("home")}>🏠 Home</Button>

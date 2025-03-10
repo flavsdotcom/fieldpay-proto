@@ -53,3 +53,17 @@
 
 .wallet-button:hover 
 
+.wallet-card.available-earnings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #fdd774; /* Accent color */
+  border-radius: 10px;
+  transition: background 0.2s ease-in-out;
+}
+
+.wallet-card.available-earnings:hover {
+  background: #fcca5a; /* Slightly darker shade on hover */
+}
+

@@ -24,6 +24,11 @@ const App = () => {
     setActivePage("home"); // Reset to dashboard when switching roles
   };
 
+const availableJobs = [
+  { id: 1, title: "New Air Filtration System Installation", rate: 250 }
+];
+
+
   return (
     <div className="app-container">
       {/* Toggle Button */}
@@ -45,7 +50,9 @@ const App = () => {
         <>
           {/* Talent Mode */}
           {activePage === "home" && <TalentDashboard setActivePage={setActivePage} />}
-          {activePage === "wallet" && <Wallet setActivePage={setActivePage} />}
+{activePage === "wallet" && (
+  <Wallet setActivePage={setActivePage} availableOpportunities={availableJobs} />
+)}
           {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
 
           {/* Persistent Talent Navigation */}
