@@ -1,78 +1,46 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 import "./App.css";
-import AdminHome from "./AdminHome";
-import Recruiting from "./Recruiting";
-import Teamwork from "./Teamwork";
-import CreateCoverageRequest from "./CreateCoverageRequest";
-import CreateRideAlongBonus from "./CreateRideAlongBonus";
-import CreateReferralBonus from "./CreateReferralBonus";
-import TalentDashboard from "./TalentDashboard";
-import AvailableOpportunities from "./AvailableOpportunities";
-import CreateGig from "./CreateGig";
-import ActiveRequests from "./ActiveRequests";
+import AdminHome from "./components/AdminHome";
+import TalentDashboard from "./components/TalentDashboard";  
+import AvailableOpportunities from "./components/AvailableOpportunities";
+import ActiveJobs from "./components/ActiveJobs";
+import Recruiting from "./components/Recruiting";
+import Teamwork from "./components/Teamwork";
+import Wallet from "./components/Wallet";
+
 
 const App = () => {
-  const [activePage, setActivePage] = useState("home");
-  const [userRole, setUserRole] = useState("admin"); // Default to Admin
+  const [userRole, setUserRole] = useState("admin"); // Tracks user role
+  const [activePage, setActivePage] = useState("home"); // Tracks active page
 
-const toggleRole = () => {
-  setUserRole((prevRole) => {
-    const newRole = prevRole === "admin" ? "talent" : "admin";
-    console.log("Switched Role to:", newRole);
-
-    // 🛠️ FIX: Automatically set the correct activePage when switching roles
-    setActivePage(newRole === "admin" ? "home" : "talent-dashboard");
-
-    return newRole;
-  });
-};
-
-console.log("Rendering App with userRole:", userRole, "and activePage:", activePage);
-
+  const toggleRole = () => {
+    setUserRole((prevRole) => (prevRole === "admin" ? "talent" : "admin"));
+    setActivePage("home"); // Reset to dashboard when switching roles
+  };
+    
 return (
   <div className="app-container">
-    {/* Role Toggle Button (Top-Right Corner) */}
+    {/* Toggle Button */}
     <button className="toggle-button" onClick={toggleRole}>
       {userRole === "admin" ? "👤 Talent" : "🏢 Admin"}
     </button>
 
-{/* Admin Mode */}
-{userRole === "admin" && activePage === "home" && (
-  <AdminHome setActivePage={setActivePage} />
-)}
-
-{userRole === "admin" && activePage === "recruiting" && (
-  <Recruiting setActivePage={setActivePage} />
-)}
-
-{userRole === "admin" && activePage === "teamwork" && (
-  <Teamwork setActivePage={setActivePage} />
-)}
-
-{userRole === "admin" && activePage === "coverage-request" && (
-  <CreateCoverageRequest setActivePage={setActivePage} />
-)}
-
-{userRole === "admin" && activePage === "active-requests" && (
-  <ActiveRequests setActivePage={setActivePage} />
-)}
-
-{userRole === "admin" && activePage === "ride-along-bonus" && (
-  <CreateRideAlongBonus setActivePage={setActivePage} />
-)}
-
-{userRole === "admin" && activePage === "referral-bonus" && (
-  <CreateReferralBonus setActivePage={setActivePage} />
-)}
-
-    {/* 🚀 Talent Mode 🚀 */}
-{userRole === "talent" && (
-  <>
-    {activePage === "talent-dashboard" && ( <TalentDashboard setActivePage={setActivePage} />)}
-    {activePage === "available-opportunities" && ( <AvailableOpportunities setActivePage={setActivePage} />)}
-  </>
-)}
+    {/* Admin Mode */}
+    {userRole === "admin" ? (
+      <>
+        {activePage === "home" && <AdminHome setActivePage={setActivePage} />}
+        {activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
+        {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
+      </>
+    ) : (
+      <>
+        {/* Talent Mode */}
+        {activePage === "home" && <TalentDashboard setActivePage={setActivePage} />}
+        {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
+        {activePage === "active-jobs" && <ActiveJobs setActivePage={setActivePage} />}
+        {activePage === "wallet" && <Wallet setActivePage={setActivePage} />}
+      </>
+    )}
 
     {/* Footer */}
     <footer className="footer">Fieldpay</footer>

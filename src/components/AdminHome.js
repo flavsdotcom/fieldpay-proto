@@ -2,8 +2,9 @@ import React from "react";
 
 const AdminHome = ({ setActivePage }) => {
   return (
-    <div className="app-container">
-      <h2 className="top-third">Admin Dashboard</h2>
+    <div className="admin-container">
+      <h2 className="admin-title">Admin Dashboard</h2>
+      
       <button className="custom-button" onClick={() => setActivePage("recruiting")}>
         Recruiting
       </button>
@@ -16,7 +17,6 @@ const AdminHome = ({ setActivePage }) => {
       <button className="custom-button" onClick={() => setActivePage("other")}>
         Other
       </button>
-      <footer className="footer">Fieldpay</footer>
     </div>
   );
 };
