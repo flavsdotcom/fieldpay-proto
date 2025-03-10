@@ -1,0 +1,32 @@
+.talent-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #edebdf; /* Warm grey background */
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  border-top: 2px solid #a5afc7; /* Muted blue accent */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-icon {
+  font-size: 22px;
+  color: #000; /* Black for icons */
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-icon:hover {
+  color: #72a2a6; /* Teal accent on hover */
+}
+
+.navbar-icon span {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
