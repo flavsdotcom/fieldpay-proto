@@ -1,0 +1,41 @@
+.admin-roster-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.roster-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.roster-table th,
+.roster-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.roster-table th {
+  background-color: #fdd774;
+  color: black;
+}
+
+.assign-button {
+  background-color: #72a2a6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.roster-button {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+

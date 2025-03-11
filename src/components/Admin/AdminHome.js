@@ -18,6 +18,10 @@ console.log("Rendering 'Other' section in AdminHome - activePage:", activePage);
       <Button className="custom-button" onClick={() => setActivePage("trade-school")}>
         Trade School
       </Button>
+<Button className="custom-button" onClick={() => setActivePage("roster")}>
+  Roster
+</Button>
+
 <Button
   className="custom-button"
   onClick={() => {

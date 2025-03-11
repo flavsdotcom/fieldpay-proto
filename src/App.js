@@ -11,6 +11,7 @@ import CreateCoverageRequest from "./components/Admin/CreateCoverageRequest";
 import AdminOther from "./components/Admin/AdminOther";
 import OneTimeLoan from "./components/Admin/OneTimeLoan";
 import EnableEWA from "./components/Admin/EnableEWA";
+import AdminRoster from "./components/Admin/AdminRoster";
 
 // Talent Components
 import TalentDashboard from "./components/Talent/TalentDashboard";
@@ -51,6 +52,8 @@ const availableJobs = [
 {activePage === "other" && <AdminOther setActivePage={setActivePage} />}
 {activePage === "one-time-loan" && <OneTimeLoan setActivePage={setActivePage} />}
 {activePage === "enable-ewa" && <EnableEWA setActivePage={setActivePage} />}
+{activePage === "roster" && <AdminRoster setActivePage={setActivePage} />}
+
 
         </>
       ) : (
