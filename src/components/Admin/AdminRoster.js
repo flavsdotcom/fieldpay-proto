@@ -1,62 +1,58 @@
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import "./AdminRoster.css";
 
-const AdminRoster = ({ setActivePage, assignAction }) => {
-  // Sample roster data
-  const [roster, setRoster] = useState([
-    { id: 1, firstName: "John", lastName: "Doe", jobType: "W2" },
-    { id: 2, firstName: "Jane", lastName: "Smith", jobType: "1099" }
-  ]);
+const AdminRoster = ({ setActivePage, onSelectUsers }) => {
+  const [selectedUsers, setSelectedUsers] = useState([]);
 
-  const [selectedWorkers, setSelectedWorkers] = useState([]);
+  const sampleUsers = [
+    { id: 1, name: "John Doe", type: "W2" },
+    { id: 2, name: "Jane Smith", type: "1099" }
+  ];
 
-  // Toggle selection of a worker
-  const toggleSelection = (id) => {
-    setSelectedWorkers((prevSelected) =>
+  const handleUserSelection = (id) => {
+    setSelectedUsers((prevSelected) =>
       prevSelected.includes(id)
-        ? prevSelected.filter((workerId) => workerId !== id)
+        ? prevSelected.filter((userId) => userId !== id)
         : [...prevSelected, id]
     );
   };
 
-  // Handle assignment
-  const handleAssign = () => {
-    if (assignAction) {
-      assignAction(selectedWorkers);
-    }
+  const proceedToAssignment = () => {
+    console.log("Selected Users:", selectedUsers);
+    onSelectUsers(selectedUsers); // Pass selected users to the next step
+    setActivePage("assign-incentive"); // Navigate to the assignment step
   };
 
   return (
     <div className="admin-roster-container">
-      <h2>Team Roster</h2>
-      <table className="roster-table">
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Job Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {roster.map((person) => (
-            <tr key={person.id}>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={selectedWorkers.includes(person.id)}
-                  onChange={() => toggleSelection(person.id)}
-                />
-              </td>
-              <td>{person.firstName}</td>
-              <td>{person.lastName}</td>
-              <td>{person.jobType}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button className="assign-button" onClick={handleAssign}>Assign Selected</button>
-      <button className="roster-button" onClick={() => setActivePage("home")}>🏠 Back to Admin</button>
+      <h2 className="roster-title">Employee Roster</h2>
+      <p className="roster-description">Select employees to assign an incentive.</p>
+      
+      <ul className="roster-list">
+        {sampleUsers.map((user) => (
+          <li key={user.id} className="roster-item">
+            <label className="roster-label">
+              <input
+                type="checkbox"
+                className="roster-checkbox"
+                checked={selectedUsers.includes(user.id)}
+                onChange={() => handleUserSelection(user.id)}
+              />
+              {user.name} ({user.type})
+            </label>
+          </li>
+        ))}
+      </ul>
+
+      <div className="roster-buttons">
+        <Button className="custom-button confirm-btn" onClick={proceedToAssignment} disabled={selectedUsers.length === 0}>
+          Next
+        </Button>
+        <Button className="custom-button back-btn" onClick={() => setActivePage("home")}>
+          Back
+        </Button>
+      </div>
     </div>
   );
 };

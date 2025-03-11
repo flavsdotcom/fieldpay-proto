@@ -5,7 +5,7 @@ const TalentDashboard = ({ setActivePage }) => {
   return (
     <div className="talent-dashboard">
       <h2>Talent Dashboard</h2>
-      <p>Welcome! Explore available gigs and track your work.</p>
+      <p>Welcome! Success is measured by your discipline and inner peace- Mike Ditka </p>
       
       {/* ✅ Ensure setActivePage is passed down */}
       <TalentNavbar setActivePage={setActivePage} />
