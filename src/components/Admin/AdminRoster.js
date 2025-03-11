@@ -18,11 +18,15 @@ const AdminRoster = ({ setActivePage, onSelectUsers }) => {
     );
   };
 
-  const proceedToAssignment = () => {
-    console.log("Selected Users:", selectedUsers);
-    onSelectUsers(selectedUsers); // Pass selected users to the next step
-    setActivePage("assign-incentive"); // Navigate to the assignment step
-  };
+const proceedToAssignment = () => {
+  if (selectedUsers.length === 0) {
+    alert("Please select at least one employee.");
+    return;
+  }
+  console.log("Selected Users for Incentive:", selectedUsers);
+  onSelectUsers(selectedUsers); // Pass selected users to the next step
+  setActivePage("assign-incentive"); // Navigate to Assign Incentive screen
+};
 
   return (
     <div className="admin-roster-container">
@@ -47,7 +51,7 @@ const AdminRoster = ({ setActivePage, onSelectUsers }) => {
 
       <div className="roster-buttons">
         <Button className="custom-button confirm-btn" onClick={proceedToAssignment} disabled={selectedUsers.length === 0}>
-          Next
+          Assign
         </Button>
         <Button className="custom-button back-btn" onClick={() => setActivePage("home")}>
           Back

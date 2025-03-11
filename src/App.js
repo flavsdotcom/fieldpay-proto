@@ -12,6 +12,7 @@ import AdminOther from "./components/Admin/AdminOther";
 import OneTimeLoan from "./components/Admin/OneTimeLoan";
 import EnableEWA from "./components/Admin/EnableEWA";
 import AdminRoster from "./components/Admin/AdminRoster";
+import AssignIncentive from "./components/Admin/AssignIncentive";
 
 // Talent Components
 import TalentDashboard from "./components/Talent/TalentDashboard";
@@ -31,6 +32,14 @@ const App = () => {
 const availableJobs = [
   { id: 1, title: "New Air Filtration System Installation", rate: 250 }
 ];
+
+const [selectedUsers, setSelectedUsers] = useState([]);
+
+const onSelectUsers = (users) => {
+  console.log("Users selected for incentive:", users);
+  setSelectedUsers(users);
+  setActivePage("assign-incentive");
+};
 
 
   return (
@@ -52,7 +61,8 @@ const availableJobs = [
 {activePage === "other" && <AdminOther setActivePage={setActivePage} />}
 {activePage === "one-time-loan" && <OneTimeLoan setActivePage={setActivePage} />}
 {activePage === "enable-ewa" && <EnableEWA setActivePage={setActivePage} />}
-{activePage === "roster" && <AdminRoster setActivePage={setActivePage} />}
+{activePage === "roster" && <AdminRoster setActivePage={setActivePage} onSelectUsers={onSelectUsers} />}
+{activePage === "assign-incentive" && <AssignIncentive setActivePage={setActivePage} />}
 
 
         </>
