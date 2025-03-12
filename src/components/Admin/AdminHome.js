@@ -32,6 +32,11 @@ console.log("Rendering 'Other' section in AdminHome - activePage:", activePage);
   Other
 </Button>
 
+<Button className="custom-button" onClick={() => setActivePage("financial-control")}>
+  Financial Control Center
+</Button>
+
+
       {/* Submenus based on activePage */}
       {activePage === "recruiting" && (
         <>

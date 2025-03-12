@@ -13,6 +13,7 @@ import OneTimeLoan from "./components/Admin/OneTimeLoan";
 import EnableEWA from "./components/Admin/EnableEWA";
 import AdminRoster from "./components/Admin/AdminRoster";
 import AssignIncentive from "./components/Admin/AssignIncentive";
+import FinancialControl from "./components/Admin/FinancialControl";
 
 // Talent Components
 import TalentDashboard from "./components/Talent/TalentDashboard";
@@ -63,6 +64,7 @@ const onSelectUsers = (users) => {
 {activePage === "enable-ewa" && <EnableEWA setActivePage={setActivePage} />}
 {activePage === "roster" && <AdminRoster setActivePage={setActivePage} onSelectUsers={onSelectUsers} />}
 {activePage === "assign-incentive" && <AssignIncentive setActivePage={setActivePage} />}
+{activePage === "financial-control" && <FinancialControl setActivePage={setActivePage} />}
 
 
         </>

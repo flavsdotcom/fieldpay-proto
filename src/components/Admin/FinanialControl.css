@@ -1,0 +1,51 @@
+.financial-control-container {
+  padding: 20px;
+  text-align: center;
+  background-color: #edebdf; /* Light beige background */
+  min-height: 100vh;
+}
+
+.financial-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.financial-summary p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.custom-button {
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 15px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-button:hover {
+  background-color: #333;
+}
+@media (max-width: 600px) {
+  .financial-summary {
+    width: 90%;  /* Uses most of the screen on smaller devices */
+  }
+
+  .custom-button {
+    width: 90%;  /* Makes button wider on smaller screens */
+  }
+}
+
