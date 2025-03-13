@@ -18,11 +18,12 @@ const AdminRoster = ({ setActivePage, onSelectUsers }) => {
     );
   };
 
-  const proceedToAssignment = () => {
-    console.log("Selected Users:", selectedUsers);
-    onSelectUsers(selectedUsers);
-    setActivePage("assign-incentive");
-  };
+const proceedToAssignment = () => {
+  console.log("Selected Users:", selectedUsers); // Debugging log
+  if (selectedUsers.length > 0) {
+    setActivePage("assign-incentive"); // Navigate to incentive selection pane
+  }
+};
 
   return (
     <div className="admin-roster-container">

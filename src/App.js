@@ -65,6 +65,7 @@ const onSelectUsers = (users) => {
     {activePage === "other-benefits" && <AdminOther setActivePage={setActivePage} />}
     {activePage === "trade-school" && <TradeSchool setActivePage={setActivePage} />}
     {activePage === "financial-control" && <FinancialControl setActivePage={setActivePage} />}
+{activePage === "assign-incentive" && <AssignIncentive setActivePage={setActivePage} />}
     {/* Persistent Admin Navigation */}
     <AdminNavbar setActivePage={setActivePage} />
   </>

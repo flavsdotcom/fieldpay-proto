@@ -46,9 +46,6 @@ const AssignIncentive = ({ selectedUsers, setActivePage }) => {
         <Button className="custom-button assign-btn" onClick={handleAssign}>
           Confirm Assignment
         </Button>
-        <Button className="custom-button back-btn" onClick={() => setActivePage("roster")}>
-          Back to Roster
-        </Button>
       </div>
     </div>
   );
