@@ -5,9 +5,13 @@ const Teamwork = ({ setActivePage }) => {
   return (
     <div className="app-container">
       <h2 className="top-third">Teamwork</h2>
-      <p className="info-text">Has someone called out or quit? Or do you need someone's special expertise? Cover down with confidence knowing you can pay someone same-day.</p>
-      <Button className="custom-button" onClick={() => setActivePage("coverage-request")}>Create Coverage Request</Button>
-      <Button className="custom-button" onClick={() => setActivePage("active-requests")}>View Active Requests</Button>
+{/* Job/Route Coverage */}
+<Button className="styled-button" onClick={() => setActivePage("coverage-request")}>
+  <div className="button-content">
+    <p className="button-description">Has someone called out or quit? Or do you need someone's special expertise? Cover down with confidence knowing you can pay someone same-day.</p>
+    <strong className="button-action">Create Job/Route Coverage</strong>
+  </div>
+</Button>
     </div>
   );
 };

@@ -1,22 +1,28 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import "./AdminButtons.css"; // Ensure this contains the new styles
 
 const Recruiting = ({ setActivePage }) => {
   return (
-    <div className="app-container">
-      <h2 className="top-third">Recruiting</h2>
-      <p className="info-text">
-        High performers want to work with other high performers. Relationships at work drive retention.
-      </p>
-      <Button className="custom-button" onClick={() => setActivePage("referral-bonus")}>
-        Create Referral Bonus
+    <div className="admin-section">
+      <h2 className="section-title">Recruiting Incentives</h2>
+
+      {/* Referral Bonus */}
+      <Button className="styled-button" onClick={() => setActivePage("referral-bonus")}>
+        <div className="button-content">
+          <p className="button-description">Encourage referrals and reward employees for bringing in great new hires.</p>
+          <strong className="button-action">Create Referral Bonus →</strong>
+        </div>
       </Button>
-      <p className="info-text">
-        De-risk hiring by inviting a candidate to “ride along” with a team member. Evaluate their ability to learn and their composure in a customer environment.
-      </p>
-      <Button className="custom-button" onClick={() => setActivePage("ride-along-bonus")}>
-        Create Ride Along Bonus
+
+      {/* Ride-Along Bonus */}
+      <Button className="styled-button" onClick={() => setActivePage("ride-along-bonus")}>
+        <div className="button-content">
+          <p className="button-description">Offer a paid ride-along to evaluate potential hires before full employment.</p>
+          <strong className="button-action">Create Ride-Along Bonus →</strong>
+        </div>
       </Button>
+
     </div>
   );
 };
