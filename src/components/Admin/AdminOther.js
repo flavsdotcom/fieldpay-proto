@@ -19,13 +19,6 @@ const AdminOther = ({ setActivePage }) => {
   Enable Earned Wage Access
 </Button>
 
-      {/* Back Button */}
-      <Button 
-        className="custom-button" 
-        onClick={() => setActivePage("home")}
-      >
-        Back to Admin
-      </Button>
     </div>
   );
 };

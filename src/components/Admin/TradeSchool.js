@@ -5,7 +5,6 @@ const TradeSchool = ({ setActivePage }) => {
     <div>
       <h2>Trade School</h2>
       <p>Placeholder content for Trade School</p>
-      <button onClick={() => setActivePage("home")}>Back to Admin</button>
     </div>
   );
 };

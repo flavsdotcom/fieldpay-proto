@@ -17,9 +17,6 @@ const Recruiting = ({ setActivePage }) => {
       <Button className="custom-button" onClick={() => setActivePage("ride-along-bonus")}>
         Create Ride Along Bonus
       </Button>
-      <Button className="custom-button" onClick={() => setActivePage("home")}>
-        Home
-      </Button>
     </div>
   );
 };
