@@ -1,24 +1,7 @@
-/* Financial Summary Tiles */
-.financial-tiles {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.tile {
-  flex: 1;
-  background: #fdd774;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
 /* Admin Roster Container */
 .admin-roster-container {
   padding: 20px;
-  background-color: #edebdf; /* Matches theme */
+  background-color: #edebdf;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -57,28 +40,16 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ensures left/right alignment */
+  justify-content: space-between;
+  width: 100%;
 }
 
-/* Checkbox & Name Alignment */
+/* Checkbox + Name Wrapper */
 .roster-label {
   display: flex;
   align-items: center;
-  flex-grow: 1; /* Allows name to take available space */
-}
-
-/* Employee Name */
-.roster-name {
-  flex-grow: 1; /* Ensures name expands while keeping alignment */
-  font-weight: bold;
-}
-
-/* Employee Type (W2/1099) */
-.roster-type {
-  font-weight: normal;
-  color: #555;
-  text-align: right;
-  min-width: 50px; /* Ensures alignment remains even */
+  flex-grow: 1;
+  width: 100%;
 }
 
 /* Checkbox */
@@ -86,6 +57,12 @@
   width: 20px;
   height: 20px;
   margin-right: 10px;
+}
+
+/* Name Section */
+.roster-name {
+  flex-grow: 1; /* Expands name to take full space */
+  font-weight: bold;
 }
 
 /* Buttons */

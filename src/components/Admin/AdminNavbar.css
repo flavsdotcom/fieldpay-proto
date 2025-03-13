@@ -1,27 +1,37 @@
 .admin-navbar {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping */
+  background-color: white;
+  padding: 10px 0;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: white;
-  border-top: 2px solid #ddd;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* Hide scrollbar for Webkit browsers */
+.admin-navbar::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-button {
-  background: none;
-  border: none;
+  flex: 0 0 auto; /* Prevent shrinking */
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 14px;
-  color: black;
+  justify-content: center;
+  padding: 10px;
+  font-size: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 80px; /* Adjust based on icon size */
 }
 
-.nav-button:hover {
-  color: #72a2a6;
+.nav-button svg {
+  font-size: 24px; /* Ensure icons are big enough */
 }
 
