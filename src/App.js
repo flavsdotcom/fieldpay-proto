@@ -14,6 +14,8 @@ import EnableEWA from "./components/Admin/EnableEWA";
 import AdminRoster from "./components/Admin/AdminRoster";
 import AssignIncentive from "./components/Admin/AssignIncentive";
 import FinancialControl from "./components/Admin/FinancialControl";
+import AdminNavbar from "./components/Admin/AdminNavbar";
+import TradeSchool from "./components/Admin/TradeSchool";
 
 // Talent Components
 import TalentDashboard from "./components/Talent/TalentDashboard";
@@ -50,37 +52,31 @@ const onSelectUsers = (users) => {
         {userRole === "admin" ? "👤 Talent" : "🏢 Admin"}
       </button>
 
-      {/* Admin Mode */}
-      {userRole === "admin" ? (
-        <>
-          {activePage === "home" && <AdminHome activePage={activePage} setActivePage={setActivePage} />}
-          {activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
-          {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
-          {activePage === "referral-bonus" && <CreateReferralBonus setActivePage={setActivePage} />}
-          {activePage === "ride-along-bonus" && <CreateRideAlongBonus setActivePage={setActivePage} />}
-          {activePage === "coverage-request" && <CreateCoverageRequest setActivePage={setActivePage} />}
-{activePage === "other" && <AdminOther setActivePage={setActivePage} />}
-{activePage === "one-time-loan" && <OneTimeLoan setActivePage={setActivePage} />}
-{activePage === "enable-ewa" && <EnableEWA setActivePage={setActivePage} />}
-{activePage === "roster" && <AdminRoster setActivePage={setActivePage} onSelectUsers={onSelectUsers} />}
-{activePage === "assign-incentive" && <AssignIncentive setActivePage={setActivePage} />}
-{activePage === "financial-control" && <FinancialControl setActivePage={setActivePage} />}
-
-
-        </>
-      ) : (
-        <>
-          {/* Talent Mode */}
-          {activePage === "home" && <TalentDashboard setActivePage={setActivePage} />}
-{activePage === "wallet" && (
-  <Wallet setActivePage={setActivePage} availableOpportunities={availableJobs} />
+{/* Admin Mode */}
+{userRole === "admin" ? (
+  <>
+    {activePage === "home" && <AdminRoster setActivePage={setActivePage} />} {/* Roster is the landing pane */}
+    {activePage === "roster" && <AdminRoster setActivePage={setActivePage} />}
+    {activePage === "recruiting" && <Recruiting setActivePage={setActivePage} />}
+    {activePage === "teamwork" && <Teamwork setActivePage={setActivePage} />}
+    {activePage === "referral-bonus" && <CreateReferralBonus setActivePage={setActivePage} />}
+    {activePage === "ride-along-bonus" && <CreateRideAlongBonus setActivePage={setActivePage} />}
+    {activePage === "coverage-request" && <CreateCoverageRequest setActivePage={setActivePage} />}
+    {activePage === "other-benefits" && <AdminOther setActivePage={setActivePage} />}
+    {activePage === "trade-school" && <TradeSchool setActivePage={setActivePage} />}
+    {activePage === "financial-control" && <FinancialControl setActivePage={setActivePage} />}
+    {/* Persistent Admin Navigation */}
+    <AdminNavbar setActivePage={setActivePage} />
+  </>
+) : (
+  <>
+    {/* Talent Mode */}
+    {activePage === "home" && <TalentDashboard setActivePage={setActivePage} />}
+    {activePage === "wallet" && <Wallet setActivePage={setActivePage} />}
+    {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
+    <TalentNavbar setActivePage={setActivePage} />
+  </>
 )}
-          {activePage === "available-opportunities" && <AvailableOpportunities setActivePage={setActivePage} />}
-
-          {/* Persistent Talent Navigation */}
-          <TalentNavbar setActivePage={setActivePage} />
-        </>
-      )}
 
     </div>
   );
