@@ -9,7 +9,7 @@ const Wallet = ({ setActivePage, balance = 0.0, pendingPayouts = 0.0, availableO
 
   return (
     <div className="wallet-container">
-      <h2 className="wallet-title">Wallet</h2>
+      <h2 className="page-title">Wallet</h2>
 
       {/* Balance & Pending Payouts Side by Side */}
       <div className="wallet-row">

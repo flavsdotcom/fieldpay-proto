@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 const Teamwork = ({ setActivePage }) => {
   return (
     <div className="app-container">
-      <h2 className="top-third">Teamwork</h2>
+      <h2 className="page-title">Teamwork</h2>
 {/* Job/Route Coverage */}
 <Button className="styled-button" onClick={() => setActivePage("coverage-request")}>
   <div className="button-content">

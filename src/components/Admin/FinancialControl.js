@@ -5,7 +5,7 @@ import "./FinancialControl.css"; // We'll style this later
 const FinancialControl = ({ setActivePage }) => {
   return (
     <div className="financial-control-container">
-      <h2>Financial Control Center</h2>
+<h2 className="page-title">Financial Control Center</h2>
 
       <div className="financial-summary">
         <p><strong>💰 Escrow Balance:</strong> $50,000</p>

@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 const ActiveJobs = ({ activeJobs, setActivePage }) => {
   return (
     <div className="app-container">
-      <h2 className="top-third">Active Jobs</h2>
+      <h2 className="page-title">[Active Jobs]</h2>
       {activeJobs.length > 0 ? (
         activeJobs.map((job, index) => (
           <div key={index} className="opportunity-card">

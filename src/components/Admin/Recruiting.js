@@ -5,7 +5,7 @@ import "./AdminButtons.css"; // Ensure this contains the new styles
 const Recruiting = ({ setActivePage }) => {
   return (
     <div className="admin-section">
-      <h2 className="section-title">Recruiting Incentives</h2>
+      <h2 className="page-title">Recruiting Incentives</h2>
 
       {/* Referral Bonus */}
       <Button className="styled-button" onClick={() => setActivePage("referral-bonus")}>

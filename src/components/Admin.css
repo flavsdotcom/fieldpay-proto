@@ -1,0 +1,10 @@
+.admin-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ccc; /* Optional: Adds a subtle divider */
+}
+

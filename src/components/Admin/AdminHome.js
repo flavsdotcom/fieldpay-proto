@@ -6,7 +6,7 @@ console.log("Rendering 'Other' section in AdminHome - activePage:", activePage);
 
   return (
     <div className="app-container">
-      <h2 className="top-third">Admin Dashboard</h2>
+      <h2 className="page-title">Admin Dashboard</h2>
 
       {/* Main Category Buttons */}
       <Button className="custom-button" onClick={() => setActivePage("recruiting")}>

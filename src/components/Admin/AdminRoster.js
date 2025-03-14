@@ -27,7 +27,7 @@ const proceedToAssignment = () => {
 
   return (
     <div className="admin-roster-container">
-      <h2 className="roster-title">Team Roster</h2>
+      <h2 className="admin-title">Team Roster</h2>
       <p className="roster-description">Select team members to assign an incentive or opportunity.</p>
 
       {/* Employee List */}

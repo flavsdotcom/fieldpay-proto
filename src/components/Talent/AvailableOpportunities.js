@@ -25,7 +25,7 @@ const AvailableOpportunities = ({ setActivePage }) => {
 
   return (
     <div className="opportunities-container">
-      <h2>Opportunities</h2>
+      <h2 classname="page-title">Opportunities</h2>
 
       {jobs.map((job) => (
         <div key={job.id} className="opportunity-card">

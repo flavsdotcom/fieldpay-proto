@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 const AdminOther = ({ setActivePage }) => {
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Other</h2>
+<h2 className="page-title">Other Benefits</h2>
       <p>Manage additional financial options for your employees.</p>
 
 {/* One-Time Employee Loan */}
